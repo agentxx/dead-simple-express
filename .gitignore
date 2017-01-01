@@ -33,3 +33,5 @@ builtAssets
 
 # xunit test results
 test-reports.xml
+
+.idea/*
