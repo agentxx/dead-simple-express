@@ -7,20 +7,9 @@ var lastMod = require('./lastMod');
 
 var db = require('../../config/mongoose');
 
-var accessTokenSchema = new mongoose.Schema({
-  accessToken: {type: String},
-  kind: {type: String}
-});
-
 var userSchema = new mongoose.Schema({
   email: {type: String, lowercase: true, required: true, unique: true},
   password: String,
-
-  google: String,
-  linkedin: String,
-  github: String,
-
-  tokens: [accessTokenSchema],
 
   profile: {
     name: {type: String, default: '', trim: true},

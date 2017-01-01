@@ -210,38 +210,3 @@ module.exports.postDeleteAccount = function(req, res, next) {
     res.redirect('/');
   });
 };
-
-//
-//  GET /account/unlink/:provider
-//  Unlink OAuth2 provider from the current user.
-//  @param provider
-//  @param id - User ObjectId
-//
-module.exports.getOauthUnlink = function(req, res, next) {
-  var provider = req.params.provider;
-
-  var user = req.user;
-
-  if (user.tokens.length > 1) {
-    user[provider] = undefined;
-    user.tokens = _.reject(user.tokens, function(token) { return token.kind === provider; });
-  } else {
-    req.flash('errors', {msg: 'Cant unlink - need at least one linked account'});
-    return res.redirect('/account');
-  }
-
-  async.series([function(callback) {
-
-    user.save(function(err) {
-      if (err) { return callback(err); }
-      callback();
-    });
-
-  }], function(err) {
-    if (err) { return next(err); }
-
-    req.flash('success', {msg: provider + ' account has been unlinked.'});
-    res.redirect('/account');
-  });
-};
-

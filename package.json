@@ -47,9 +47,6 @@
     "mongoose": "*",
     "morgan": "*",
     "passport": "*",
-    "passport-github": "*",
-    "passport-google-oauth": "*",
-    "passport-linkedin-oauth2": "*",
     "passport-local": "*",
     "safe-json-parse": "*",
     "serve-favicon": "*"
