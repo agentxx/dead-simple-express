@@ -19,12 +19,6 @@ module.exports = {
   // tasks: function(changedFiles) {
   //   var tasks = [];
 
-  //   changedFiles.forEach(function(file) {
-  //     if (path.extname(file) === '.js' && !~tasks.indexOf('jshint') && !~tasks.indexOf('jscs') && !~tasks.indexOf('jscpd')) {
-  //       tasks.push('jshint', 'jscs');
-  //     }
-  //   });
-
   //   return tasks;
   // }
 };
