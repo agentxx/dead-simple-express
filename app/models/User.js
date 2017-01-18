@@ -18,7 +18,8 @@ var userSchema = new mongoose.Schema({
     website: {type: String, default: '', trim: true},
     picture: {type: String, default: '', trim: true}
   },
-
+  admin: {type: Boolean, default: false},
+  approved: {type: Boolean, default: false},
   created_on: {type: Date, default: new Date()},
   last_modified: {type: Date}
 });
