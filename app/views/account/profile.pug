@@ -1,4 +1,4 @@
-extends ../layout
+extends ../layout.pug
 
 block content
   .page-header
@@ -9,11 +9,11 @@ block content
     .form-group
       label.col-sm-2.control-label(for='email') Email
       .col-sm-4
-        input.form-control(type='email', name='email', id='email', value='#{user.email}')
+        input.form-control(type='email', name='email', id='email', value=user.email)
     .form-group
       label.col-sm-2.control-label(for='name') Name
       .col-sm-4
-        input.form-control(type='text', name='name', id='name', value='#{user.profile.name}')
+        input.form-control(type='text', name='name', id='name', value=user.profile.name)
     .form-group
       label.col-sm-2.control-label(for='gender') Gender
       .col-sm-4
@@ -26,11 +26,11 @@ block content
     .form-group
       label.col-sm-2.control-label(for='location') Location
       .col-sm-4
-        input.form-control(type='text', name='location', id='location', value='#{user.profile.location}')
+        input.form-control(type='text', name='location', id='location', value=user.profile.location)
     .form-group
       label.col-sm-2.control-label(for='website') Website
       .col-sm-4
-        input.form-control(type='text', name='website', id='website', value='#{user.profile.website}')
+        input.form-control(type='text', name='website', id='website', value=user.profile.website)
     .form-group
       .col-sm-offset-2.col-sm-4
         button.btn.btn.btn-primary(type='submit')
@@ -55,31 +55,3 @@ block content
         button.btn.btn.btn-primary(type='submit')
           i.fa.fa-lock
           | Change Password
-
-  .page-header
-    h3 Delete Account
-
-  p You can delete your account, but keep in mind this action is irreversible.
-  form(action='/account/delete', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    button.btn.btn-danger(type='submit')
-      i.fa.fa-trash
-      | Delete my account
-
-  .page-header
-    h3 Linked Accounts
-
-  if user.instagram
-    p: a.text-danger(href='/account/unlink/instagram') Unlink your Instagram account
-  else
-    p: a(href='/auth/instagram') Link your Instagram account
-
-  if user.facebook
-    p: a.text-danger(href='/account/unlink/facebook') Unlink your Facebook account
-  else
-    p: a(href='/auth/facebook') Link your Facebook account
-
-  if user.twitter
-    p: a.text-danger(href='/account/unlink/twitter') Unlink your Twitter account
-  else
-    p: a(href='/auth/twitter') Link your Twitter account

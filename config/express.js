@@ -48,7 +48,7 @@ module.exports = function(app, passport) {
   app.set('env', environment);
   app.set('port', port);
   app.set('views', path.join(config.root, 'app', 'views'));
-  app.set('view engine', 'jade');
+  app.set('view engine', 'pug');
   if (environment === 'production') {
     app.enable('trust proxy');
     app.disable('x-powered-by');
